@@ -9,7 +9,8 @@ import { ResponseData, ResponseErrorData } from "./utils/interfaces/Response";
 import mongoose from "mongoose";
 import { connectDB } from "./utils/database/dbConn";
 import cors from "cors";
-import { requestHandler } from "./middleware/requestHandler";
+import requestHandler from "./middleware/requestHandler";
+import errorHandler from "./middleware/errorHandler";
 
 //express app
 const app = express();
@@ -26,6 +27,8 @@ app.all("*", (req: Request, res: Response) => {
   };
   res.status(respData.code).json(respData);
 });
+
+app.use(errorHandler);
 
 //database connection
 connectDB(DB_KEY);
