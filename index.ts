@@ -9,7 +9,6 @@ import { ResponseData, ResponseErrorData } from "./utils/interfaces/Response";
 import mongoose from "mongoose";
 import { connectDB } from "./utils/database/dbConn";
 import cors from "cors";
-import corsOptions from "./utils/cors/corsOptions";
 import { requestHandler } from "./middleware/requestHandler";
 
 //express app
@@ -17,7 +16,7 @@ const app = express();
 
 //main code
 app.use(requestHandler);
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 app.all("*", (req: Request, res: Response) => {
