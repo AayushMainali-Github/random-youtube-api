@@ -1,5 +1,29 @@
 {
   "devDependencies": {
     "typescript": "^5.1.6"
-  }
+  },
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.4"
+  },
+  "name": "random-youtube-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node JavaScript/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AayushMainali-Github/random-youtube-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AayushMainali-Github/random-youtube-api/issues"
+  },
+  "homepage": "https://github.com/AayushMainali-Github/random-youtube-api#readme",
+  "description": ""
 }
