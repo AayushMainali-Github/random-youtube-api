@@ -5,14 +5,18 @@ const DB_KEY = process.env.DB as string;
 
 //imports
 import express, { Request, Response, NextFunction } from "express";
+import { ResponseData, ResponseErrorData } from "./utils/interfaces/Response";
 import mongoose from "mongoose";
 import { connectDB } from "./utils/database/dbConn";
-import { ResponseData, ResponseErrorData } from "./utils/interfaces/Response";
+import cors from "cors";
+import corsOptions from "./utils/cors/corsOptions";
 
 //express app
 const app = express();
 
 //main code
+app.use(cors(corsOptions));
+app.use(express.json());
 
 app.all("*", (req: Request, res: Response) => {
   const respData: ResponseErrorData = {
