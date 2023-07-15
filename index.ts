@@ -11,7 +11,7 @@ import { connectDB } from "./utils/database/dbConn";
 import cors from "cors";
 import requestHandler from "./middleware/requestHandler";
 import errorHandler from "./middleware/errorHandler";
-
+import linkRouter from "./routes/link";
 //express app
 const app = express();
 
@@ -19,6 +19,8 @@ const app = express();
 app.use(requestHandler);
 app.use(cors());
 app.use(express.json());
+
+app.use("/link", linkRouter);
 
 app.all("*", (req: Request, res: Response) => {
   const respData: ResponseErrorData = {

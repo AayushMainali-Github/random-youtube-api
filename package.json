@@ -17,7 +17,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node JavaScript/index.js"
+    "start": "tsc && node _JavaScript/index.js"
   },
   "repository": {
     "type": "git",
