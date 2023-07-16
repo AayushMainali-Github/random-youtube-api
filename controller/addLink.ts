@@ -4,7 +4,7 @@ import { NextFunction, Request, Response } from "express";
 import { ResponseErrorData, ResponseSuccessData } from "../utils/interfaces/Response";
 import { LinkData } from "../utils/interfaces/Link";
 
-const addLink = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+const addLink = asyncHandler(async (req: Request, res: Response, _next: NextFunction): Promise<any> => {
   let { link } = req.body;
   //check if link exists
   if (!link) {

@@ -4,8 +4,8 @@ const PORT = process.env.PORT || 9000;
 const DB_KEY = process.env.DB as string;
 
 //imports
-import express, { Request, Response, NextFunction } from "express";
-import { ResponseData, ResponseErrorData } from "./utils/interfaces/Response";
+import express, { Request, Response } from "express";
+import { ResponseErrorData } from "./utils/interfaces/Response";
 import mongoose from "mongoose";
 import { connectDB } from "./utils/database/dbConn";
 import cors from "cors";
@@ -22,7 +22,7 @@ app.use(express.json());
 
 app.use("/link", linkRouter);
 
-app.all("*", (req: Request, res: Response) => {
+app.all("*", (_req: Request, res: Response) => {
   const respData: ResponseErrorData = {
     code: 404,
     message: "404 not found",

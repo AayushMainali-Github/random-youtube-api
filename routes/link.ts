@@ -1,4 +1,4 @@
-import { Router, Request, Response, IRouter, NextFunction } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 const router = Router();
 import addLink from "../controller/addLink";
 import getLink from "../controller/getLink";

@@ -4,7 +4,7 @@ import { NextFunction, Request, Response } from "express";
 import { ResponseSuccessData } from "../utils/interfaces/Response";
 import { LinkData } from "../utils/interfaces/Link";
 
-const getLink = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+const getLink = asyncHandler(async (_req: Request, res: Response, _next: NextFunction): Promise<any> => {
   //generate a random num
   let totalCount: number = await Link.count({});
   let randomNum: number = Math.floor(Math.random() * totalCount);
