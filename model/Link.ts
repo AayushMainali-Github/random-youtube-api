@@ -6,3 +6,5 @@ const linkSchema = new Schema<LinkData>({
 });
 
 const Link = model<LinkData>("Link", linkSchema);
+
+export default Link;
