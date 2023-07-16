@@ -28,11 +28,23 @@ const addLink = asyncHandler(async (req: Request, res: Response, next: NextFunct
   const validLink = link.match(regexExp);
   if (!validLink) return res.status(errRespData.code).json(errRespData);
 
+  //check for duplicate
+  const dup = await Link.findOne({ id: validLink[1] }).lean().exec();
+
+  if (dup) {
+    const dupErrRespData: ResponseErrorData = {
+      code: 409,
+      message: "Link already exists in the database.",
+    };
+    return res.status(dupErrRespData.code).json(dupErrRespData);
+  }
+
   link = validLink[0];
 
   //save the link in database
   const obj: LinkData = {
     link,
+    id: validLink[1],
   };
   const linkData = await Link.create(obj);
 
